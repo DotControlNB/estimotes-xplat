@@ -148,6 +148,20 @@ namespace Estimotes {
 			this.filters.Remove(filter.ToString());
         }
 
+		public override double GetDistanceForBeacon(string name,string UUID,int major,int minor,Object mac, int measuredPower,int rssi)
+		{
+			int Uuid;
+			Int32.TryParse(UUID, out Uuid);
+			long leastSignificantBits = 0;
+			long mostSignificantBits = 0;
+			leastSignificantBits = (Uuid & 0xFFFF0000);
+			mostSignificantBits = (long)(Uuid & 0x0000FFFF);
+			Java.Util.UUID v = new Java.Util.UUID(mostSignificantBits, leastSignificantBits);
+			/* STUB it */
+			var macAddres = (MacAddress)mac;
+			EstimoteSdk.Beacon mapped = new EstimoteSdk.Beacon(v,name,macAddres,major,minor,measuredPower,rssi);
+			return Utils.ComputeAccuracy(mapped);
+		}
 
 //        string nearableScanId;
 //        public override void StartNearableDiscovery() {

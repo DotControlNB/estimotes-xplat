@@ -18,5 +18,6 @@ namespace Estimotes {
         public ushort Major => this.beacon.Major?.UInt16Value ?? 0;
         public ushort Minor => this.beacon.Minor?.UInt16Value ?? 0;
         public Proximity Proximity => this.beacon.Proximity.FromNative();
-    }
+		public double Distance { get; set; }
+	}
 }

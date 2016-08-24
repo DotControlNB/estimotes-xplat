@@ -18,9 +18,9 @@ namespace Estimotes {
         public ushort Minor { get; }
         public Proximity Proximity { get; }
         public string Uuid { get; }
+		public double Distance { get; set; }
 
-
-        public override bool Equals(object obj) {
+		public override bool Equals(object obj) {
             var other = obj as IBeacon;
             if (other == null)
                 return false;

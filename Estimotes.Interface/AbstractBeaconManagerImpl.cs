@@ -108,6 +108,7 @@ namespace Estimotes {
 			this.EddystoneFilters = new ReadOnlyCollection<IEddystoneFilter>(this.eddystoneFilters);
 		}
 
+		public abstract double GetDistanceForBeacon(string name, string UUID, int major, int minor, Object mac, int measuredPower, int rssi);
 
 		public virtual void StopAllMonitoring() {
 			var list = this.monitoringRegions.ToList();

@@ -226,5 +226,10 @@ namespace Estimotes {
 
 			return native;
         }
-    }
+
+		public override double GetDistanceForBeacon(string name, string UUID, int major, int minor, object mac, int measuredPower, int rssi)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

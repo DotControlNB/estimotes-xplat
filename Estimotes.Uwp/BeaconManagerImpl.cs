@@ -22,12 +22,18 @@ namespace Estimotes {
         protected override void StopMonitoringNative(BeaconRegion region) {}
         public override void StartEddystoneScanNative(IEddystoneFilter filter) {}
         public override void StopEddystoneScanNative(IEddystoneFilter filter) {}
-        //public override void StartNearableDiscovery() {}
-        //public override void StopNearableDiscovery() {}
+
+		public override double GetDistanceForBeacon(string name, string UUID, int major, int minor, object mac, int measuredPower, int rssi)
+		{
+			throw new NotImplementedException();
+		}
+
+		//public override void StartNearableDiscovery() {}
+		//public override void StopNearableDiscovery() {}
 
 
-        //https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BluetoothAdvertisement/cs
-        public BeaconManagerImpl() {
+		//https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BluetoothAdvertisement/cs
+		public BeaconManagerImpl() {
             this.beaconMgr = new BeaconManager();
             this.beaconMgr.BluetoothBeacons.CollectionChanged += (sender, args) => { };
 

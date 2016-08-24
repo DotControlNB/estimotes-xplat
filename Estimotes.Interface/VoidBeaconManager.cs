@@ -26,7 +26,12 @@ namespace Estimotes {
 			return await Task.FromResult(new List<IBeacon>(0));
         }
 
-        public event EventHandler<IEnumerable<IBeacon>> Ranged;
+		public double GetDistanceForBeacon(string name, string UUID, int major, int minor, object mac, int measuredPower, int rssi)
+		{
+			throw new NotImplementedException();
+		}
+
+		public event EventHandler<IEnumerable<IBeacon>> Ranged;
         public event EventHandler<BeaconRegionStatusChangedEventArgs> RegionStatusChanged;
 		public event EventHandler<IEnumerable<IEddystone>> Eddystone;
 //        public event EventHandler<IEnumerable<INearable>> Nearables;

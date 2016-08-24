@@ -9,6 +9,7 @@ namespace Estimotes {
 		ushort Minor { get; }
 		ushort Major { get; }
 		string Uuid { get; }
+		double Distance { get; set; }
     }
 }
 

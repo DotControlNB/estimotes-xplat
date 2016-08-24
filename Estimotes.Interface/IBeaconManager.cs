@@ -102,12 +102,14 @@ namespace Estimotes {
         /// </summary>
 		IObservable<IEnumerable<IBeacon>> WhenRanged { get; }
 
-        #endregion
+		double GetDistanceForBeacon(string name, string UUID, int major, int minor, Object mac, int measuredPower, int rssi);
+
+		#endregion
 
 
-        #region Eddystone
+		#region Eddystone
 
-        void StartEddystoneScan(IEddystoneFilter filter);
+		void StartEddystoneScan(IEddystoneFilter filter);
 		void StopEddystoneScan(IEddystoneFilter filter);
 		IReadOnlyList<IEddystoneFilter> EddystoneFilters { get; }
 		event EventHandler<IEnumerable<IEddystone>> Eddystone;
